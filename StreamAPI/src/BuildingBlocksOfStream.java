@@ -39,7 +39,7 @@ public class BuildingBlocksOfStream {
         Function<Integer,Integer> identity = Function.identity();
         System.out.println(identity.apply(10));
 
-        // Consumer - Accepts but does not return anything. (accept)
+        // 3.Consumer - Accepts but does not return anything. (accept)
 
         Consumer<Integer> print = x -> System.out.println(x);
         print.accept(5);
@@ -53,7 +53,7 @@ public class BuildingBlocksOfStream {
         printList.accept(list);
         System.out.println(list);
 
-        // Supplier - returns some values but accepts nothing (get)
+        // 4.Supplier - returns some values but accepts nothing (get)
 
         Supplier<String> helloWorld = ()->"Hello World!";
 
