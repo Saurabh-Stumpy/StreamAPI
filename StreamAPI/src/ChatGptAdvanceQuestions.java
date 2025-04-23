@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -38,7 +35,7 @@ public class ChatGptAdvanceQuestions {
 
         // 20. Group Strings by First Character
         List<String> words = Arrays.asList("Apple", "Amazon", "Google", "GitHub");
-        System.out.println(words.stream().collect(Collectors.toMap(x->x.charAt(0),x->x,String::concat)));
+        System.out.println(words.stream().collect(Collectors.groupingBy(x->x.charAt(0))));
 
         // 21. Join a List of Strings with Comma
         List<String> words1 = Arrays.asList("Red", "Green", "Blue");
@@ -46,6 +43,19 @@ public class ChatGptAdvanceQuestions {
 
         // 22. Count Frequency of Each Character in a String
         String str = "banana";
+        System.out.println(str.chars().mapToObj(x->(char)x).collect(Collectors.groupingBy(x->x,Collectors.counting())));
+
+        // 23. Remove Null or Empty Strings from a List
+        List<String> input = Arrays.asList("Java", "", null, "Streams", "", null);
+        System.out.println(input.stream().filter(x-> x!=null && x.length()>0).toList());
+
+        // 24. Find the Second Highest Number in a List
+        List<Integer> nums1 = Arrays.asList(10, 20, 30, 40);
+        System.out.println(nums1.stream().sorted((x,y)->y-x).skip(1).limit(1).toList());
+
+        // 25. Convert List of Integers to a Set of Squares
+        List<Integer> nums2 = Arrays.asList(1, 2, 3, 2);
+        System.out.println(nums2.stream().map(x->x*x).collect(Collectors.toSet()));
 
 
     }
